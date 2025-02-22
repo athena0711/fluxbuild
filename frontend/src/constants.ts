@@ -1,3 +1,5 @@
+import { ComputerIcon } from "lucide-react";
+
 // PAGES
 export const loginPage = "/login";
 export const logoutPage = "/logout";
@@ -11,3 +13,14 @@ export const VITE_PUBLIC_SUPABASE_ANON_KEY = import.meta.env
 
 // ADDITIONAL ENVS
 export const VITE_ENVIRONMENT = import.meta.env.VITE_ENVIRONMENT! as string;
+
+//
+// GLOBAL SIDEBAR
+export const globalSidebarItems = [
+    {
+      title: "Dashboard",
+      path: dashboardPage,
+      icon: ComputerIcon,
+      isActive: true,
+    },
+  ];
