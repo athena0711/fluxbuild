@@ -5,7 +5,7 @@ import {
   landingPage,
   dashboardPage,
 } from "./constants";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import PrivateRoute from "./auth/PrivateRoute";
 import Logout from "./pages/logout/Logout";
@@ -38,7 +38,7 @@ const ROUTES = {
 
 const App = () => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Suspense fallback={<></>}>
         <Routes>
           {/* PUBLIC ROUTES */}
@@ -60,7 +60,7 @@ const App = () => {
         </Routes>
       </Suspense>
       {/* </Router> */}
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 
