@@ -17,10 +17,13 @@ export const VITE_ENVIRONMENT = import.meta.env.VITE_ENVIRONMENT! as string;
 //
 // GLOBAL SIDEBAR
 export const globalSidebarItems = [
-    {
-      title: "Dashboard",
-      path: dashboardPage,
-      icon: ComputerIcon,
-      isActive: true,
-    },
-  ];
+  {
+    title: "Dashboard",
+    path: dashboardPage,
+    icon: ComputerIcon,
+    isActive: true,
+  },
+];
+
+// TABLES
+export const projectsTable = "Projects";
