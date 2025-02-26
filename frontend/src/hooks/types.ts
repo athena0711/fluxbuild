@@ -3,10 +3,8 @@ export interface BaseResponseT<IDType = string | number> {
   created_at: string;
 }
 
-export interface ProjectAttributes {
+export interface ProjectAttributesT {
   name: string;
   description: string;
 }
-export interface ProjectAttributesT
-  extends BaseResponseT<string>,
-    ProjectAttributes {}
+export interface ProjectsT extends BaseResponseT<string>, ProjectAttributesT {}

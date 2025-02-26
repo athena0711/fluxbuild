@@ -20,7 +20,7 @@ interface LayoutT {
 
 const Layout: React.FC<LayoutT> = ({
   sidebar,
-  sidebarWidth = "350px",
+  sidebarWidth = "250px",
   sidebarIsOpen = true,
   sidebarProps,
   children,

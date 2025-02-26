@@ -4,6 +4,7 @@ import {
   logoutPage,
   landingPage,
   dashboardPage,
+  projectPage,
 } from "./constants";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import NotFound from "./components/NotFound";
@@ -12,9 +13,8 @@ import Logout from "./pages/logout/Logout";
 import Login from "./pages/login/Login";
 
 const Landing = React.lazy(() => import("./pages/landing/Landing"));
-const Dashboard = React.lazy(
-  () => import("./pages/dashboard/Dashboard")
-);
+const Dashboard = React.lazy(() => import("./pages/dashboard/Dashboard"));
+const Projects = React.lazy(() => import("./pages/projects/Projects"));
 
 const ROUTES = {
   public: [
@@ -32,6 +32,10 @@ const ROUTES = {
     {
       path: dashboardPage,
       element: <Dashboard />,
+    },
+    {
+      path: `${projectPage}/:projectId`,
+      element: <Projects />,
     },
   ],
 };

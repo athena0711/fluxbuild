@@ -71,7 +71,10 @@ const AddProject: React.FC<AddProjectProps> = ({ open, onClose }) => {
           <DialogTitle>New Project</DialogTitle>
           <DialogDescription></DialogDescription>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-8 relative"
+            >
               <FormField
                 control={form.control}
                 name="name"
@@ -107,7 +110,9 @@ const AddProject: React.FC<AddProjectProps> = ({ open, onClose }) => {
                   </FormItem>
                 )}
               />
-              <Button type="submit">Create Project</Button>
+              <Button className="absolute right-0" type="submit">
+                Create Project
+              </Button>
             </form>
           </Form>
         </DialogHeader>

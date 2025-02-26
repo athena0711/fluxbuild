@@ -5,6 +5,7 @@ export const loginPage = "/login";
 export const logoutPage = "/logout";
 export const landingPage = "/";
 export const dashboardPage = "/dashboard";
+export const projectPage = "/projects";
 
 // CREDENTIALS
 export const VITE_SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL! as string;
