@@ -1,21 +1,26 @@
 import Layout from "@/components/Layout";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import React from "react";
 import { useGetAProject } from "@/hooks/projects";
 import { useParams, useNavigate } from "react-router-dom";
 import { ProjectSidebarFeatures } from "./ProjectSidebar";
 import { dashboardPage } from "@/constants";
+import Settings from "./Settings";
+import Templates from "./Templates";
+import About from "./About";
+import Header from "@/components/Header";
+
+const tabComponents: Record<string, React.FC> = {
+  about: About,
+  settings: Settings,
+  templates: Templates,
+};
 
 const Projects: React.FC = () => {
   const navigate = useNavigate();
-  const { projectId } = useParams<{ projectId: string }>();
+  const { projectId, sectionId } = useParams<{
+    projectId: string;
+    sectionId: string;
+  }>();
 
   if (!projectId) {
     navigate(dashboardPage);
@@ -27,26 +32,17 @@ const Projects: React.FC = () => {
     return <div></div>;
   }
 
+  const ActiveComponent = tabComponents[sectionId!];
+
   if (project) {
     return (
-      <Layout sidebar={<ProjectSidebarFeatures />} sidebarIsOpen={true}>
-        <div className="h-full m-10">
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/dashboard">Dashboard</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/dashboard">Projects</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>{project.name}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-          <div className="mt-5">xxx</div>
+      <Layout
+        sidebar={<ProjectSidebarFeatures sectionId={sectionId!} />}
+        sidebarIsOpen={true}
+      >
+        <div className="h-full p-10">
+          <Header />
+          <ActiveComponent />
         </div>
       </Layout>
     );

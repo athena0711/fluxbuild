@@ -61,7 +61,6 @@ const AddProject: React.FC<AddProjectProps> = ({ open, onClose }) => {
         onClose();
       },
     });
-    console.log(projectData);
   }
 
   return (

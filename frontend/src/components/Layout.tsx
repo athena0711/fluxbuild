@@ -40,6 +40,7 @@ const Layout: React.FC<LayoutT> = ({
         {...sidebarProps}
       >
         <SidebarGlobal sidebarIsOpen={sidebarIsOpen} />
+
         {sidebar}
       </Sidebar>
       <SidebarInset>{children}</SidebarInset>

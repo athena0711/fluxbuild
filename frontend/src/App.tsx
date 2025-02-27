@@ -34,7 +34,7 @@ const ROUTES = {
       element: <Dashboard />,
     },
     {
-      path: `${projectPage}/:projectId`,
+      path: `${projectPage}/:projectId/:sectionId`,
       element: <Projects />,
     },
   ],
