@@ -7,7 +7,7 @@ import { projectPage } from "@/constants";
 
 const Dashboard: React.FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const { data: projects } = useGetProjects();
+  const projects = useGetProjects();
   const navigate = useNavigate();
 
   const defaultSectionId: string = "about";
@@ -34,7 +34,7 @@ const Dashboard: React.FC = () => {
         </div>
         <div className="mt-5">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 cursor-pointer">
-            {projects?.map((project) => (
+            {projects.data?.map((project) => (
               <div
                 key={project.id}
                 className="p-4 border rounded shadow-md bg-card-fluxbuildWhite hover:bg-card-fluxbuildBlue hover:text-white"

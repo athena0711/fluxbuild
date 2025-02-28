@@ -4,22 +4,21 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { useLocation, Link, useParams, useNavigate } from "react-router-dom";
+import { useLocation, Link, useParams } from "react-router-dom";
 import { useGetAProject } from "@/hooks/projects";
 import React from "react";
 import { dashboardPage } from "@/constants";
+import { SectionId } from "@/pages/projects/types";
 
 const Header: React.FC = () => {
-  const navigate = useNavigate();
   const { projectId, sectionId } = useParams<{
     projectId: string;
-    sectionId: string;
+    sectionId: SectionId;
   }>();
   const project = useGetAProject(projectId!);
 
   if (!project.data && project.isLoading) {
-    navigate(dashboardPage);
-    return null;
+    return <div></div>;
   }
 
   const location = useLocation();

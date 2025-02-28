@@ -8,6 +8,7 @@ import Settings from "./Settings";
 import Templates from "./Templates";
 import About from "./About";
 import Header from "@/components/Header";
+import { SectionId } from "./types";
 
 const tabComponents: Record<string, React.FC> = {
   about: About,
@@ -19,7 +20,7 @@ const Projects: React.FC = () => {
   const navigate = useNavigate();
   const { projectId, sectionId } = useParams<{
     projectId: string;
-    sectionId: string;
+    sectionId: SectionId;
   }>();
 
   if (!projectId) {
