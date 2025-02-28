@@ -23,12 +23,12 @@ const Projects: React.FC = () => {
     sectionId: SectionId;
   }>();
 
-  if (!projectId) {
+  if (!projectId && sectionId) {
     navigate(dashboardPage);
     return null;
   }
 
-  const { data: project, isLoading } = useGetAProject(projectId);
+  const { data: project, isLoading } = useGetAProject(projectId!);
   if (isLoading && !project) {
     return <div></div>;
   }
