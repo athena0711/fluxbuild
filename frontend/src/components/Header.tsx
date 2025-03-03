@@ -26,9 +26,11 @@ const Header: React.FC = () => {
   if (project.data) {
     return (
       <Breadcrumb>
-        <BreadcrumbList className="capitalize">
+        <BreadcrumbList className="capitalize text-card-fluxbuildBlack text-md">
           <BreadcrumbItem>
-            <Link to={dashboardPage}>dashboard</Link>
+            <Link to={dashboardPage} className="hover:text-gray-400">
+              dashboard
+            </Link>
             <BreadcrumbSeparator />
           </BreadcrumbItem>
 

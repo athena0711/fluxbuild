@@ -28,20 +28,20 @@ const Projects: React.FC = () => {
     return null;
   }
 
-  const { data: project, isLoading } = useGetAProject(projectId!);
-  if (isLoading && !project) {
+  const project = useGetAProject(projectId!);
+  if (project.isLoading && !project.data) {
     return <div></div>;
   }
 
   const ActiveComponent = tabComponents[sectionId!];
 
-  if (project) {
+  if (project.data) {
     return (
       <Layout
         sidebar={<ProjectSidebarFeatures sectionId={sectionId!} />}
         sidebarIsOpen={true}
       >
-        <div className="h-full p-10">
+        <div className="h-full p-10 mb-10">
           <Header />
           <ActiveComponent />
         </div>
