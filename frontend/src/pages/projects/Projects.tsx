@@ -9,6 +9,7 @@ import Templates from "./Templates";
 import About from "./About";
 import Header from "@/components/Header";
 import { SectionId } from "./types";
+import ProjectContext from "./context";
 
 const tabComponents: Record<string, React.FC> = {
   about: About,
@@ -37,15 +38,17 @@ const Projects: React.FC = () => {
 
   if (project.data) {
     return (
-      <Layout
-        sidebar={<ProjectSidebarFeatures sectionId={sectionId!} />}
-        sidebarIsOpen={true}
-      >
-        <div className="h-full p-10 mb-10">
-          <Header />
-          <ActiveComponent />
-        </div>
-      </Layout>
+      <ProjectContext.Provider value={project.data}>
+        <Layout
+          sidebar={<ProjectSidebarFeatures sectionId={sectionId!} />}
+          sidebarIsOpen={true}
+        >
+          <div className="h-full p-10 mb-10">
+            <Header />
+            <ActiveComponent />
+          </div>
+        </Layout>
+      </ProjectContext.Provider>
     );
   }
 };

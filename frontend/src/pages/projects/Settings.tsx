@@ -1,8 +1,4 @@
-import {
-  useUpdateProject,
-  useDeleteProject,
-  useGetAProject,
-} from "@/hooks/projects";
+import { useUpdateProject, useDeleteProject } from "@/hooks/projects";
 import {
   Form,
   FormField,
@@ -28,6 +24,7 @@ import { useForm } from "react-hook-form";
 import { useParams, useNavigate } from "react-router-dom";
 import { dashboardPage } from "@/constants";
 import { Separator } from "@/components/ui/separator";
+import { useProjectContext } from "./context";
 
 const formSchema = z.object({
   name: z
@@ -40,16 +37,19 @@ const formSchema = z.object({
 });
 
 const Settings = () => {
+  const { name, description } = useProjectContext();
   const navigate = useNavigate();
   const [openDialog, setOpenDialog] = useState(false);
   const { projectId } = useParams<{ projectId: string }>();
-  const project = useGetAProject(projectId!);
   const updateFn = useUpdateProject(projectId!);
   const deleteFn = useDeleteProject();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: project.data || { name: "", description: "" },
+    defaultValues: {
+      name: name,
+      description: description,
+    },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
