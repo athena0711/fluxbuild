@@ -37,7 +37,7 @@ const formSchema = z.object({
 });
 
 const Settings = () => {
-  const { name, description } = useProjectContext();
+  const context = useProjectContext();
   const navigate = useNavigate();
   const [openDialog, setOpenDialog] = useState(false);
   const { projectId } = useParams<{ projectId: string }>();
@@ -47,8 +47,8 @@ const Settings = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: name,
-      description: description,
+      name: context.name,
+      description: context.description,
     },
   });
 
