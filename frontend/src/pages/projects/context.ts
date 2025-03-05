@@ -5,7 +5,7 @@ interface ProjectContextT {
   description?: string;
 }
 
-const ProjectContext = createContext<ProjectContextT | null>(null);
+const ProjectContext = createContext<ProjectContextT>({});
 
 export const useProjectContext = () => {
   const context = useContext(ProjectContext);

@@ -36,21 +36,19 @@ const Projects: React.FC = () => {
 
   const ActiveComponent = tabComponents[sectionId!];
 
-  if (project.data) {
-    return (
-      <ProjectContext.Provider value={project.data}>
-        <Layout
-          sidebar={<ProjectSidebarFeatures sectionId={sectionId!} />}
-          sidebarIsOpen={true}
-        >
-          <div className="h-full p-10 mb-10">
-            <Header />
-            <ActiveComponent />
-          </div>
-        </Layout>
-      </ProjectContext.Provider>
-    );
-  }
+  return (
+    <ProjectContext.Provider value={project.data!}>
+      <Layout
+        sidebar={<ProjectSidebarFeatures sectionId={sectionId!} />}
+        sidebarIsOpen={true}
+      >
+        <div className="h-full p-10 mb-10">
+          <Header />
+          <ActiveComponent />
+        </div>
+      </Layout>
+    </ProjectContext.Provider>
+  );
 };
 
 export default Projects;
