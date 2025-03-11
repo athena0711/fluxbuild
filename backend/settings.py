@@ -23,3 +23,7 @@ class Settings(BaseSettings):
 
     ## Storage ##
     DOCUMENTS_STORAGE: str = "Documents"
+
+    ## Tables ##
+    PROJECTS_TABLE: str = "Projects"
+    

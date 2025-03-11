@@ -1,5 +1,5 @@
 from supabase._async.client import AsyncClient, create_client as create_async_client
-from backend.settings import Settings  # type: ignore
+from settings import Settings
 
 settings = Settings()
 

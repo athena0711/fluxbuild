@@ -1,5 +1,5 @@
 import logfire
-from backend.settings import Settings  # type: ignore
+from settings import Settings
 
 settings = Settings()
 

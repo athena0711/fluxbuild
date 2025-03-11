@@ -17,4 +17,6 @@ dependencies = [
     "supabase>=2.13.0",
 ]
 
-
+[tool.mypy]
+plugins = ["pydantic.mypy"]
+exclude = ["conftest.py", "test_*.py", "tests/*"]

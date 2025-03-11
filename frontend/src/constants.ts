@@ -11,6 +11,7 @@ export const projectPage = "/projects";
 export const VITE_SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL! as string;
 export const VITE_PUBLIC_SUPABASE_ANON_KEY = import.meta.env
   .VITE_PUBLIC_SUPABASE_ANON_KEY! as string;
+export const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL! as string;
 
 // ADDITIONAL ENVS
 export const VITE_ENVIRONMENT = import.meta.env.VITE_ENVIRONMENT! as string;

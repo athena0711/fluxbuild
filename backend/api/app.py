@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from api.routes import router
 from contextlib import asynccontextmanager
-from backend.settings import Settings  # type: ignore
+from settings import Settings
 from libs.monitoring import configure_logfire
 
 settings = Settings()
